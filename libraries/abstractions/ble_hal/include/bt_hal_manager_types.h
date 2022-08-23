@@ -1,6 +1,6 @@
 /*
- * FreeRTOS BLE HAL V5.1.0
- * Copyright (C) 2020 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ * FreeRTOS BLE HAL V5.0.1
+ * Copyright (C) 2020-2022 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -92,24 +92,32 @@ typedef struct
 } BTUuid_t;
 
 /**
- * @brief Bluetooth Error Status .
+ * @brief Bluetooth Error Status.
  */
 typedef enum
 {
-    eBTStatusSuccess = 0,        /**< Success. */
-    eBTStatusFail = 1,           /**< Generic fail. */
-    eBTStatusNotReady = 2,       /**< Service/Driver/Peripheral not ready. */
-    eBTStatusNoMem = 3,          /**< Failed to allocate memory. */
-    eBTStatusBusy = 4,           /**< Service/Driver/Peripheral busy. */
-    eBTStatusDone = 5,           /**< Request already completed. */
-    eBTStatusUnsupported = 6,    /**< Unsupported request/call. */
-    eBTStatusParamInvalid = 7,   /**< Invalid parameter. */
-    eBTStatusUnHandled = 8,      /**< Unhandled */
-    eBTStatusAuthFailure = 9,    /**< Authentication procedure failed. */
-    eBTStatusRMTDevDown = 10,    /**< Remote Device Down */
-    eBTStatusAuthRejected = 11,  /**< Authentication rejected. */
-    eBTStatusWakeLockError = 12, /**< Wake lock error */
-    eBTStatusLinkLoss = 13       /**< Link lost. */
+    eBTStatusSuccess = 0,                 /**< Success */
+    eBTStatusFail = 1,                    /**< Generic fail */
+    eBTStatusNotReady = 2,                /**< Service/Driver/Peripheral not ready */
+    eBTStatusNoMem = 3,                   /**< Failed to allocate memory */
+    eBTStatusBusy = 4,                    /**< Service/Driver/Peripheral busy */
+    eBTStatusDone = 5,                    /**< Request already completed */
+    eBTStatusUnsupported = 6,             /**< Unsupported request/call */
+    eBTStatusParamInvalid = 7,            /**< Invalid parameter */
+    eBTStatusUnHandled = 8,               /**< Unhandled */
+    eBTStatusAuthFailure = 9,             /**< Authentication procedure failed */
+    eBTStatusRMTDevDown = 10,             /**< Remote Device Down */
+    eBTStatusAuthRejected = 11,           /**< Authentication rejected */
+    eBTStatusWakeLockError = 12,          /**< Wake lock error */
+    eBTStatusLinkLoss = 13,               /**< Link lost */
+    eBTStatusObexBadRequest = 14,         /**< Obex bad reqeust */
+    eBTStatusObexNotImplemented = 15,     /**< Obex not implemnted */
+    eBTStatusObexUnauthorized = 16,       /**< Obex Unauthorized */
+    eBTStatusObexPreconnFailed = 17,      /**< Obex Precondition Failed */
+    eBTStatusObexNotFound = 18,           /**< Obex not found */
+    eBTStatusObexNotAcceptable = 19,      /**< Obex not acceptable */
+    eBTStatusObexServiceUnavailable = 20, /**< Obex service unavailable */
+    eBTStatusObexForbidden = 21           /**< Obex forbidden */
 } BTStatus_t;
 
 typedef enum
@@ -123,8 +131,9 @@ typedef enum
     eBTProfileHeadsetClient = 6,   /**< Headset Client (HFP-HF role) profile. */
     eBTProfileGATT = 7,            /**< GATT profile */
     eBTProfileSock = 8,            /**< Socket profile */
-    /* TODO : Add other profiles? */
-    eBTProfileMaxID = 9            /**< Max profile index */
+    eBTProfileIAP = 9,             /**< iPod Accessory Profile */
+    eBTProfileSPP = 10,            /**< Serial Port profile */
+    eBTProfileMaxID = 11           /**< @deprecated Max profile index */
 } BTProfile_t;
 
 /**
@@ -136,7 +145,7 @@ typedef enum
     eBTIODisplayOnly = 1,     /**< No input, only display. */
     eBTIODisplayYesNo = 2,    /**< Display + yes/no input. */
     eBTIOKeyboardOnly = 3,    /**< Only input, keyboard. */
-    eBTIOKeyboardDisplay = 4, /**< Keyboard and Display. */
+    eBTIOKeyboardDisplay = 4  /**< Keyboard and Display. */
 } BTIOtypes_t;
 
 #endif /* _BT_HAL_MANAGER_TYPES_H_ */
